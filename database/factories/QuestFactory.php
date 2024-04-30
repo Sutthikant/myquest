@@ -17,9 +17,9 @@ class QuestFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->sentence,
-            'detail' => fake()->paragraph,
+            'title' => fake()->sentence,
             'reward' => fake()->sentence,
+            'user_id' => fake()->numberBetween(1,10),
         ];
     }
 }

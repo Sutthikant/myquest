@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('quests', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
-            $table->text('detail');
+            $table->string('title');
             $table->string('reward');
+            $table->foreignId('user_id');
 
             $table->timestamps();
         });

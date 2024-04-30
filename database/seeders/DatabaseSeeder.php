@@ -14,7 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Quest::factory(10)->create();
         User::factory(10)->create();
+        Quest::factory(10)->create();
+        Todo::factory(10)->create();
+        Activity::factory(10)->create();
     }
 }

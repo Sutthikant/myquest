@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
 
+
+            $table->foreignId('quest_id');
+            $table->foreignId('activity_id');
             $table->datetime('date');
             $table->boolean('done');
 
