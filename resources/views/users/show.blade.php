@@ -8,6 +8,7 @@
         @foreach($user->quest as $quest)
 
            {{$quest->title}}
+           <br/>
 
         @endforeach
     </div>

@@ -1,5 +1,11 @@
 <x-site-layout title="Start a new Quest">
 
+    @if($errors->any())
+        <div class="bg-red-50 rounded p-2 text-red-500">
+            {{ $errors->any() ? $errors : ''}}
+        </div>
+    @endif
+
     <form action="{{route('quests.store')}}" method="post" class="flex flex-col gap-4">
         @csrf
         
