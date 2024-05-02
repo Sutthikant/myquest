@@ -1,4 +1,7 @@
-<x-guest-layout>
+<x-site-layout title="LOGIN">
+
+<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -44,4 +47,5 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</div>
+</x-site-layout>
