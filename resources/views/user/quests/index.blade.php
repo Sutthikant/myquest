@@ -11,9 +11,9 @@
                 <h2 class="text-lg font-bold">{{$quest->title}}</h2>
             </div>
             <div class="flex gap-2 text-sm">
-                    <a href="{{route('quests.show', ['quest' => $quest->id])}}" class="text-blue-500">Details</a>
-                    <a href="{{route('quests.edit', ['quest' => $quest->id])}}" class="text-blue-500">Edit</a>
-                    <form action="{{route('quests.destroy', ['quest' => $quest->id])}}" method="post">
+                    <a href="{{route('user.quests.show', ['quest' => $quest->id])}}" class="text-blue-500">Details</a>
+                    <a href="{{route('user.quests.edit', ['quest' => $quest->id])}}" class="text-blue-500">Edit</a>
+                    <form action="{{route('user.quests.destroy', ['quest' => $quest->id])}}" method="post">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="text-blue-500">Delete</button>
