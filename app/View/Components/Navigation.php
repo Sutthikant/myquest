@@ -18,6 +18,7 @@ class Navigation extends Component
             ['name' => 'Welcome', 'url' => '/'],
             ['name' => 'Quests', 'url' => '/quests'],
             ['name' => 'Users', 'url' => '/users'],
+            ['name' => 'Activity', 'url' => '/activities'],
             ['name' => 'MyQuests', 'url' => '/user/quests'],
             
         ];

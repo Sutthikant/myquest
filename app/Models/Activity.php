@@ -12,7 +12,7 @@ class Activity extends Model
     protected $guarded = [];
 
     //Model relation---------------------------------
-    public function todo()
+    public function todos()
     {
         return $this->hasMany(Todo::class);
     }
