@@ -9,82 +9,16 @@ class QuestController extends Controller
 {
     public function index()
     {
-        $quests = Quest::where('user_id', 1) -> get();
+        $quests = Quest::get();
 
-        return view('quests.index', ['quests' => $quests]);
+        return view('public.quests.index', ['quests' => $quests]);
     }
 
-    public function show(string $id)
+    public function show($id)
     {
-        return view('quests.show', ['quest' => Quest::find($id)]);
+        $quest = Quest::findOrFail($id);
+
+        return view('public.quests.show', ['quest' => $quest]);
     }
-
-    public function create()
-    {
-        return view('quests.create');
-    }
-
-    public function store(Request $request)
-    {
-
-        $request->validate([
-            'title' => ['required', 'string'],
-            'reward' => 'required',
-        ]);
-
-        $title = $request -> title;
-        $reward = $request -> reward;
-
-        $quest = Quest::create([
-            'title' => $title,
-            'reward' => $reward,
-            'user_id' => 1, 
-        ]);
-
-        session() -> flash ('success_message', 'Your quest was created successfully!!!');
-
-        return redirect()->route('quests.show', ['quest' => $quest -> id]);
-    }
-
-    public function edit(string $id)
-    {
-        $quest = Quest::find($id);
-
-        return view('quests.edit', ['quest' => $quest]);
-    }
-
-    public function update(Request $request, string $id)
-    {
-
-        $request->validate([
-            'title' => ['required', 'string'],
-            'reward' => 'required',
-        ]);
-
-        $quest = Quest::find($id);
-
-        $title = $request -> title;
-        $reward = $request -> reward;
-
-        $quest->update([
-            'title'=>$title,
-            'reward'=>$reward,
-
-        ]);
-
-        session() -> flash ('success_message', 'Your quest was updated successfully!!!');
-
-        return redirect()->route('quests.show', ['quest' => $quest -> id]);
-    }
-
-    public function destroy(string $id)
-    {
-        $quest = Quest::find($id);
-
-        $quest->delete();
-
-        return redirect() -> route('quests.index');
-    }
-
 
 }

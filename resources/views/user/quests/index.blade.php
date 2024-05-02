@@ -1,4 +1,4 @@
-<x-site-layout title="List of all user 1's Quest">
+<x-site-layout title="List of all {{auth() -> user() -> name}}'s Quest">
 
 
     <div class="flex justify-end w-full mb-4">
