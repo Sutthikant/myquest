@@ -41,6 +41,7 @@ class QuestController extends Controller
             'user_id' => 1, 
         ]);
 
+        session() -> flash ('success_message', 'Your quest was created successfully!!!');
 
         return redirect()->route('quests.show', ['quest' => $quest -> id]);
     }
@@ -54,6 +55,12 @@ class QuestController extends Controller
 
     public function update(Request $request, string $id)
     {
+
+        $request->validate([
+            'title' => ['required', 'string'],
+            'reward' => 'required',
+        ]);
+
         $quest = Quest::find($id);
 
         $title = $request -> title;
@@ -64,6 +71,8 @@ class QuestController extends Controller
             'reward'=>$reward,
 
         ]);
+
+        session() -> flash ('success_message', 'Your quest was updated successfully!!!');
 
         return redirect()->route('quests.show', ['quest' => $quest -> id]);
     }

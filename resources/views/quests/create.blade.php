@@ -9,15 +9,8 @@
     <form action="{{route('quests.store')}}" method="post" class="flex flex-col gap-4">
         @csrf
         
-        <label for="title">
-            Quest's Title:<br/>
-            <input type="text" id="title" name="title"/>
-        </label>
-
-        <label for="reward">
-            Reward:<br/>
-            <input type="text" id="reward" name="reward"/>
-        </label>
+        <x-form-text label="Title" name="title" />
+        <x-form-text label="Reward" name="reward" />
 
         <div class="mt-4 flex justify">
             <button type="submit" class="p-1 bg-teal-500 text-white rounded">Create</button>
