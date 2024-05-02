@@ -9,7 +9,7 @@ class Quest extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = ['title', 'reward', 'user_id'];
 
     //Model relation-----------------------------
     public function user()
