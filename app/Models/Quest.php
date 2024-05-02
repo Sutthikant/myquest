@@ -17,7 +17,7 @@ class Quest extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function todo()
+    public function todos()
     {
         return $this->hasMany(Todo::class);
     }
