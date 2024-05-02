@@ -6,7 +6,7 @@
         </div>
     @endif
 
-    <form action="{{route('user.quests.store')}}" method="post" class="flex flex-col gap-4">
+    <form action="{{route('user.quests.store')}}" method="post" class="flex flex-col gap-4" enctype="multipart/form-data">
         @csrf
         
         <x-form-text label="Title" name="title" />
@@ -19,6 +19,10 @@
                 <label for="act-{$activity->id}}">{{$activity->name}}</label><br/>
             @endforeach
         </div>
+
+        <label class="text-sm font-semibold" for="photo">Quest image</label>
+        <input type="file" name="photo" id="photo"/>
+
 
         <div class="mt-4 flex justify">
             <button type="submit" class="p-1 bg-teal-500 text-white rounded">Create</button>

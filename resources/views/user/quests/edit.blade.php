@@ -6,7 +6,7 @@
         </div>
     @endif
 
-    <form action="{{route('user.quests.update', ['quest' => $quest -> id])}}" method="post" class="flex flex-col gap-4">
+    <form action="{{route('user.quests.update', ['quest' => $quest -> id])}}" method="post" class="flex flex-col gap-4" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -20,6 +20,10 @@
                 <label for="act-{$activity->id}}">{{$activity->name}}</label><br/>
             @endforeach
         </div>
+
+        <label class="text-sm font-semibold" for="photo">Article image</label>
+        <input type="file" name="photo" id="photo"/>
+
         
         <div class="mt-4 flex justify">
             <button type="submit" class="p-1 bg-teal-500 text-white rounded">Update</button>

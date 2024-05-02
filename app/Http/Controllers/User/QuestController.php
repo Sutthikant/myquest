@@ -37,7 +37,10 @@ class QuestController extends Controller
         $request->validate([
             'title' => ['required', 'string'],
             'reward' => 'required',
+            'photo' => ['nullable'],
         ]);
+
+        dd($request->photo);
 
         $title = $request -> title;
         $reward = $request -> reward;
@@ -46,6 +49,7 @@ class QuestController extends Controller
             'title' => $title,
             'reward' => $reward,
             'user_id' => auth() -> user() -> id, 
+            
         ]);
 
         foreach($request -> activities as $activity){
@@ -56,6 +60,11 @@ class QuestController extends Controller
                 'done' => false,
             ]);
         };
+
+        if ($request->has('photo')) {
+            $quest->addMediaFromRequest('photo')->toMediaCollection('photos');
+        }
+
 
         session() -> flash ('success_message', 'Your quest was created successfully!!!');
 
@@ -78,7 +87,10 @@ class QuestController extends Controller
         $request->validate([
             'title' => ['required', 'string'],
             'reward' => 'required',
+            'photo' => ['nullable'],
         ]);
+
+        // dd($request->photo);
 
         $quest = Quest::find($id);
 
@@ -106,6 +118,11 @@ class QuestController extends Controller
                 'done' => false,
             ]);
         };
+
+        if ($request->has('photo')) {
+            $quest->addMediaFromRequest('photo')->toMediaCollection('photos');
+        }
+
 
         session() -> flash ('success_message', 'Your quest was updated successfully!!!');
 

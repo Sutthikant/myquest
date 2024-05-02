@@ -2,7 +2,7 @@
 
 
     <div class="flex justify-end w-full mb-4">
-        <a href="{{route('user.quests.create')}}" class="p-1 bg-teal-500 text-white rounded">Create new quest!!!</a>
+        <a href="{{route('user.quests.create')}}" class="p-1 bg-green-500 text-white rounded">Create new quest!!!</a>
     </div>
 
     @foreach($quests as $quest)
