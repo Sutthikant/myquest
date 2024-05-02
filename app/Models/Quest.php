@@ -21,4 +21,18 @@ class Quest extends Model
     {
         return $this->hasMany(Todo::class);
     }
+
+    //Business logic------------------------------
+    public function isAllowedToEdit(User $user): bool
+    {
+        if ($user == null) {
+            return false;
+        }
+
+        if ($user->superadmin) {
+            return true;
+        }
+
+        return $user->id == $this->user_id;
+    }
 }

@@ -18,6 +18,12 @@ class QuestController extends Controller
 
     public function show(string $id)
     {
+        $quest = Quest::find($id);
+
+        if (! $quest->isAllowedToEdit(auth()->user())) {
+            abort(401);
+        }
+
         return view('user.quests.show', ['quest' => Quest::find($id)]);
     }
 
@@ -28,8 +34,6 @@ class QuestController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request -> all());
-
         $request->validate([
             'title' => ['required', 'string'],
             'reward' => 'required',
@@ -62,19 +66,25 @@ class QuestController extends Controller
     {
         $quest = Quest::find($id);
 
+        if (! $quest->isAllowedToEdit(auth()->user())) {
+            abort(401);
+        }
+
         return view('user.quests.edit', ['quest' => $quest]);
     }
 
     public function update(Request $request, string $id)
     {
-        // dd($request->all());
-
         $request->validate([
             'title' => ['required', 'string'],
             'reward' => 'required',
         ]);
 
         $quest = Quest::find($id);
+
+        if (! $quest->isAllowedToEdit(auth()->user())) {
+            abort(401);
+        }
 
         $title = $request -> title;
         $reward = $request -> reward;
@@ -110,6 +120,8 @@ class QuestController extends Controller
 
         return redirect() -> route('user.quests.index');
     }
+
+
 
 
 }

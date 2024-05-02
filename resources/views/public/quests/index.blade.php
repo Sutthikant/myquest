@@ -1,13 +1,13 @@
 <x-site-layout title="List of Quests">
 
-    <div class="grid grid-cols-2 gap-8">                
-        
+    <ul class="list-disc ml-5">
         @foreach($quests as $quest)
-            <a class="underline hover:bg-pink-200" href="/quests/{{$quest->id}}">
-                {{$quest -> title}}<br/>                
-            </a>
+            <li>
+                <a class="underline hover:bg-pink-200" href="/quests/{{$quest->id}}">
+                    {{$quest -> title}}<br/>                
+                </a>
+            </li>
         @endforeach
-        
-    </div>
+    </ul>
 
 </x-site-layout>
