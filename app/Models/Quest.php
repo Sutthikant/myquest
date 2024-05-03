@@ -50,7 +50,7 @@ class Quest extends Model implements HasMedia
     {
         $this
             ->addMediaConversion('preview')
-            ->fit(Fit::Contain, 50, 50)
+            ->fit(Fit::Crop, 400, 400)
             ->nonQueued();
         // $this
         //     ->addMediaConversion('card')

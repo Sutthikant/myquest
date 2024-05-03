@@ -1,14 +1,9 @@
-<x-site-layout title="Details of {{$user->name}}">
-
-    <p>
-        <strong>{{$user->name}}'s Quests</strong>
-    </p>
+<x-site-layout title="{{$user->name}}'s Quests">
 
     <div class="grid grid-cols-2 gap-8">
         @foreach($user->quest as $quest)
 
-           {{$quest->title}}
-           <br/>
+            <x-article-display-card :quest="$quest"/>
 
         @endforeach
     </div>

@@ -40,8 +40,6 @@ class QuestController extends Controller
             'photo' => ['nullable'],
         ]);
 
-        dd($request->photo);
-
         $title = $request -> title;
         $reward = $request -> reward;
 
